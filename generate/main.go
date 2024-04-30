@@ -24,18 +24,17 @@ const JSVersion = "v{{.ver}}"
 // JS for stealth
 const JS = {{.js}}
 `,
-		"ver", version(),
 		"js", encode(fetchJS()),
 	)
 
 	utils.E(utils.OutputFile(slash("assets.go"), build))
 
-	utils.ExecLine(true, "go install github.com/ysmood/golangci-lint@latest")
-	utils.ExecLine(true, "golangci-lint")
+	// utils.ExecLine(true, "go install github.com/ysmood/golangci-lint@latest")
+	// utils.ExecLine(true, "golangci-lint")
 }
 
 func fetchJS() string {
-	utils.ExecLine(true, "npx -ys -- extract-stealth-evasions@latest")
+	// utils.ExecLine(true, "npx -ys -- extract-stealth-evasions@latest")
 
 	code, err := utils.ReadString("stealth.min.js")
 	utils.E(err)
